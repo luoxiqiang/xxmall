@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+
 @Table(name = "xx_user")
 public class User {
 
@@ -14,99 +17,78 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userName;
+    @Length(min = 6,max = 20 ,message="用户名长度在6到20位之间")
+    private String username;
 
+    @Length(min = 6,max = 20 ,message="密码长度在6到20位之间")
     private String password;
-
-    private String name;
-
-    private Integer age;
-
-    private Integer sex;
-
-    private Date birthday;
+    
+    @Length(min = 11,max = 11 ,message="手机长度位11位")
+    private String phone;
+    
+    @Email(message="邮箱格式不正确")
+    private String email;
 
     private Date created;
 
     private Date updated;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getuserName() {
-        return userName;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setuserName(String userName) {
-        this.userName = userName;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public Integer getAge() {
-        return age;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Integer getSex() {
-        return sex;
-    }
+	public Date getCreated() {
+		return created;
+	}
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
+	public void setCreated(Date created) {
+		this.created = created;
+	}
 
-    public Date getBirthday() {
-        return birthday;
-    }
+	public Date getUpdated() {
+		return updated;
+	}
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Date updated) {
-        this.updated = updated;
-    }
-
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", name=" + name
-                + ", age=" + age + ", sex=" + sex + ", birthday=" + birthday + ", created=" + created
-                + ", updated=" + updated + "]";
-    }
+	
 
 }

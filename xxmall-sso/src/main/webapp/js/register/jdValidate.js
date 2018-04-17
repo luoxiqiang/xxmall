@@ -598,7 +598,7 @@ function checkPin(option) {
             option.errorEle.html("<em style='color:#999'>检验中……</em>");
             $.ajax({
             	url : "http://sso.xxmall.com/rest/user/check/"+escape(pin)+"/1?r=" + Math.random(),
-            	dataType : "jsonp",
+            	dataType : "json",
             	success : function(data) {
                     checkpin = data?"1":"0";
                     if (!data) {
@@ -653,7 +653,7 @@ function sendMobileCode() {
     // 检测手机号码是否存在
     $.ajax({
     	url : "http://sso.xxmall.com/rest/user/check/"+mobile+"/2?r=" + Math.random(),
-    	dataType : "jsonp",
+    	dataType : "json",
     	success : function(result) {
             if (!result) {
                 $('#phone').removeClass().addClass("text");
@@ -847,7 +847,7 @@ function sendMobileCode1() {
     // 检测手机号码是否存在
     $.ajax({
     	url : "http://sso.xxmall.com/rest/user/check/"+mobile+"/2?r=" + Math.random(),
-    	dataType : "jsonp",
+    	dataType : "json",
     	success : function(result) {
             if (!result) {
                 $('#phone1').removeClass().addClass("text");
@@ -1262,7 +1262,7 @@ function phoneBlur() {
     // 检测手机号码是否存在
     $.ajax({
     	url : "http://sso.xxmall.com/rest/user/check/"+mobile+"/2?r=" + Math.random(),
-    	dataType : "jsonp",
+    	dataType : "json",
     	success : function(result) {
             mobileResult = result ? "1" : "0";
             // if (mobileResult != 2) {
@@ -1330,7 +1330,7 @@ function phoneKeyup() {
     // 检测手机号码是否存在
     $.ajax({
     	url : "http://sso.xxmall.com/rest/user/check/"+mobile+"/2?r=" + Math.random(),
-    	dataType : "jsonp",
+    	dataType : "json",
     	success : function(result) {
             mobileResult = result ? "1" : "0";
             $("#sendMobileCode").removeAttr("disabled");
