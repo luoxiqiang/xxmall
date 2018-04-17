@@ -10,4 +10,9 @@ public class UserService {
 
 	@Autowired
 	private UserMapper userMapper;
+
+	public Boolean check(String param, Integer type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
