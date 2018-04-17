@@ -20,8 +20,8 @@ public class ItemService {
 	@Autowired
 	private APIService apiService;
 	
-	@Value("${INDEX_AD_URL}")
-	private String INDEX_AD_URL;
+	@Value("${MANAGE_URL}")
+	private String MANAGE_URL;
 	
 	@Autowired
 	private RedisService redisService;
@@ -45,7 +45,7 @@ public class ItemService {
 			e.printStackTrace();
 		}
 		
-		String url = INDEX_AD_URL+"/rest/api/item/"+itemId;
+		String url = MANAGE_URL+"/rest/api/item/"+itemId;
 		try {
 			String content = apiService.doGet(url);
 			//设置缓存
@@ -64,7 +64,7 @@ public class ItemService {
 	}
 
 	public ItemDesc queryItemDescById(Long itemId) {
-		String url = INDEX_AD_URL+"/rest/item/desc/"+itemId;
+		String url = MANAGE_URL+"/rest/item/desc/"+itemId;
 		try {
 			String content = apiService.doGet(url);
 			return MAPPER.readValue(content, ItemDesc.class);

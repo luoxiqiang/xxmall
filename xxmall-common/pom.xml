@@ -6,7 +6,6 @@
 	  <artifactId>xxmall-parent</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
   </parent>
-  
   <groupId>per.xxmall.common</groupId>
   <artifactId>xxmall-common</artifactId>
   <version>1.0.0-SNAPSHOT</version>
