@@ -5,10 +5,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title>登录淘淘</title>
-    <link type="text/css" rel="stylesheet" href="http://static.xxmall.com/css/login.css"/>
-    <script type="text/javascript" src="http://static.xxmall.com/js/jquery-1.2.6.min.js"></script>
-    <script type="text/javascript" src="http://static.xxmall.com/js/login/g.base.js"></script>
-   	<script type="text/javascript" src="http://static.xxmall.com/js/login/jdEdit.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://sso.xxmall.com/css/login.css"/>
+    <script type="text/javascript" src="http://sso.xxmall.com/js/jquery-1.2.6.min.js"></script>
+    <script type="text/javascript" src="http://sso.xxmall.com/js/login/g.base.js"></script>
+   	<script type="text/javascript" src="http://sso.xxmall.com/js/login/jdEdit.js"></script>
     <script type="text/javascript">
         var pgeditor = new jQuery.pge({
             pgePath: "#",
@@ -45,7 +45,7 @@
 <div class="w">
     <div id="logo">
     	<a href="http://www.xxmall.com/" clstag="passport|keycount|login|01">
-    		<img src="http://static.xxmall.com/images/xxmall-logo.gif" alt="淘淘" width="170" height="60"/>
+    		<img src="http://sso.xxmall.com/images/xxmall-logo.gif" alt="淘淘" width="170" height="60"/>
     	</a><b></b>
    	</div>
 </div>
@@ -186,9 +186,9 @@
     <jsp:include page="../commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div>
-<script type="text/javascript" src="http://static.xxmall.com/js/login/login.js"></script>
-<script type="text/javascript" src="http://static.xxmall.com/js/login/jdThickBox.js"></script>
-<script type="text/javascript" src="http://static.xxmall.com/js/login/checkClient.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/login/login.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/login/jdThickBox.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/login/checkClient.js"></script>
 <script>
    $("#jdsafe").hover(function () {
        $("#tip-safe").show();

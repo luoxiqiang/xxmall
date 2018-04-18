@@ -369,7 +369,7 @@ $("#loginsubmit").click(function () {
         var _password = $("#formlogin [name=password]").val();
         $.ajax({
             type: "POST",
-            url: "/service/user/doLogin?r=" + Math.random(),
+            url: "/rest/user/doLogin?r=" + Math.random(),
             contentType: "application/x-www-form-urlencoded; charset=utf-8",
             data: {username:_username,password:_password},
             dataType : "json",
@@ -379,11 +379,9 @@ $("#loginsubmit").click(function () {
                 $("#loginsubmit").removeAttr("disabled");
                 $this.removeAttr("disabled");
             },
-            success: function (result) {
-                if (result) {
-                    var obj = eval(result);
+            success: function (obj) {
                     if (obj.status == 200) {
-                    	obj.success = "http://www.taotao.com/";
+                    	obj.success = "http://www.xxmall.com/";
                         var isIE = !-[1,];
                         if (isIE) {
                             var link = document.createElement("a");
@@ -439,7 +437,6 @@ $("#loginsubmit").click(function () {
 //                        $("#authcode").attr({ "class": "text text-1 highlight2" });
 //                        $("#authcode_error").html(obj.emptyAuthcode).show().attr({ "class": "error" });
 //                    }
-                }
             }
         });
     }

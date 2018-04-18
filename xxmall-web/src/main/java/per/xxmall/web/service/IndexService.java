@@ -22,8 +22,8 @@ public class IndexService {
 	@Autowired
 	private APIService apiService;
 	
-	@Value("${INDEX_AD_URL}")
-	private String INDEX_AD_URL;
+	@Value("${MANAGE_URL}")
+	private String MANAGE_URL;
 	
 	@Value("${SROLLAD_PARAM}")
 	private String SROLLAD_PARAM;
@@ -31,7 +31,7 @@ public class IndexService {
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 	
 	public String getRollAd() {
-		String uri = INDEX_AD_URL+SROLLAD_PARAM;
+		String uri = MANAGE_URL+SROLLAD_PARAM;
 		try {
 			String doGet = apiService.doGet(uri);
 			if(doGet == null ||doGet.isEmpty())

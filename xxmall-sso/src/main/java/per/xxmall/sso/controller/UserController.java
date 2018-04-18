@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import per.xxmall.common.utils.CookieUtils;
 import per.xxmall.sso.pojo.User;
 import per.xxmall.sso.service.UserService;
 
@@ -28,10 +31,12 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	public static final String COOKIE_TOKEN="XX_TOKEN";
 
-	@RequestMapping(value="/register", method = RequestMethod.GET)
-	public String toRegister() {
-		return "register";
+	@RequestMapping(value="/{pageName}", method = RequestMethod.GET)
+	public String toRegister(@PathVariable("pageName") String pageName) {
+		return pageName;
 	}
 	
 	@RequestMapping(value = "/check/{param}/{type}", method = RequestMethod.GET)
@@ -71,7 +76,47 @@ public class UserController {
 		}else{
 			map.put("data", " ");
 		}
+		return map;	
+	}
+	@RequestMapping(value="/doLogin",method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> doLogin(String username,String password,
+			HttpServletRequest request,HttpServletResponse response){
+		Map<String, Object> map = new HashMap<>();
+		String token;
+		try {
+			token = userService.doLogin(username,password);
+			if(token == null) {
+				map.put("status",400);
+			}else {
+				map.put("status", 200);
+				CookieUtils.setCookie(request, response, COOKIE_TOKEN, token);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			map.put("status",500);
+		}
 		return map;
 	}
 	
+	@RequestMapping(value="/query/{token}",method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> checkLogin(@PathVariable("token") String token){
+		Map<String, Object> map = new HashMap<>();
+		try {
+			User user = userService.checkLogin(token);
+			if(user == null) map.put("status", 400);
+			else {
+				map.put("status", 200);
+				map.put("data", user);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			map.put("status", 500);
+		}
+		return map;
+	}
 }

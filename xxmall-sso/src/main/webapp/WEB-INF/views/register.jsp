@@ -8,9 +8,9 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
     <title>注册-个人用户</title>
-    <link type="text/css" rel="stylesheet" href="http://static.xxmall.com/css/regist.personal.css"/>
-    <link type="text/css" rel="stylesheet" href="http://static.xxmall.com/css/passport.base.css"/>
-    <script type="text/javascript" src="http://static.xxmall.com/js/jquery-1.2.6.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://sso.xxmall.com/css/regist.personal.css"/>
+    <link type="text/css" rel="stylesheet" href="http://sso.xxmall.com/css/passport.base.css"/>
+    <script type="text/javascript" src="http://sso.xxmall.com/js/jquery-1.2.6.min.js"></script>
 </head>
 <body>
     <script type="text/javascript">
@@ -80,7 +80,7 @@ function addToFavorite() {
 <div class="w" id="logo">
     <div>
     	<a href="http://www.xxmall.com/">
-    		<img src="http://static.xxmall.com/images/xxmall-logo.gif" alt="京东商城" width="170" height="60"/>
+    		<img src="http://sso.xxmall.com/images/xxmall-logo.gif" alt="京东商城" width="170" height="60"/>
     	</a> <b></b>
     </div>
 </div>
@@ -239,7 +239,7 @@ function addToFavorite() {
                 </div>
             </div>
             <div class="phone">
-                <img width="180" height="180" src="http://static.xxmall.com/images/phone-bg.jpg">
+                <img width="180" height="180" src="http://sso.xxmall.com/images/phone-bg.jpg">
             </div>
                         <span class="clr"></span>
         </form>
@@ -269,11 +269,11 @@ function addToFavorite() {
     <jsp:include page="../commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div>
-<script type="text/javascript" src="http://static.xxmall.com/js/register/jd.lib.js"></script>
-<script type="text/javascript" src="http://static.xxmall.com/js/register/jdThickBox.js"></script>
-<script type="text/javascript" src="http://static.xxmall.com/js/register/jdValidate.js"></script>
-<script type="text/javascript" src="http://static.xxmall.com/js/register/jdValidate.emReg.js"></script>
-<script type="text/javascript" src="http://static.xxmall.com/js/register/jdValidate.regSuccess.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/register/jd.lib.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/register/jdThickBox.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/register/jdValidate.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/register/jdValidate.emReg.js"></script>
+<script type="text/javascript" src="http://sso.xxmall.com/js/register/jdValidate.regSuccess.js"></script>
 
 
 <script id="box01" type="text/temp">

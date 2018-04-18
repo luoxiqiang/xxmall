@@ -1,17 +1,17 @@
-var TT = TAOTAO = {
+var TT = xxmall = {
 	checkLogin : function(){
-		var _ticket = $.cookie("TT_TICKET");
-		if(!_ticket){
+		var token = $.cookie("XX_TOKEN");
+		if(!token){
 			return ;
 		}
 		$.ajax({
-			url : "http://sso.taotao.com/user/query/" + _ticket,
+			url : "http://sso.xxmall.com/rest/user/query/" + token,
 			dataType : "jsonp",
 			type : "GET",
 			success : function(data){
 				if(data.status == 200){
-					var _data = JSON.parse(data.data);
-					var html =_data.username+"，欢迎来到淘淘！<a href=\"http://www.taotao.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
+					var _data = data.data;
+					var html =_data.username+"，欢迎来到淘淘！<a href=\"http://www.xxmall.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				}
 			}

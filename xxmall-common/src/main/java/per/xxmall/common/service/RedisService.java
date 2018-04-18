@@ -30,7 +30,6 @@ public class RedisService {
 			public String callback(ShardedJedis e) {
 				return e.set(key, val);
 			}
-			
 		});
 	}
 	

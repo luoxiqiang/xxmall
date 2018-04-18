@@ -11,7 +11,13 @@
 	<mvc:default-servlet-handler/>
 	
 	<!-- 注解驱动 -->
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="per.xxmall.common.spring.extend.converter.json.CallbackMappingJackson2HttpMessageConverter">
+				<property name="callbackName" value="callback"/>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	
 	<!-- 扫描Controller -->
 	<context:component-scan base-package="per.xxmall.sso.controller"/>
