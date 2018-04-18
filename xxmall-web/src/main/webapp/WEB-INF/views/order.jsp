@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>订单结算页 -淘淘商城</title>
+    <title>订单结算页 -晰晰商城</title>
 	<!--结算页面样式-->
     <link type="text/css" rel="stylesheet" href="/css/base.css" />
     <link type="text/css" rel="stylesheet" href="/css/purchase.checkout.css" />
@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="/js/jquery.checkout.js"></script>
 	<script type="text/javascript" src="/js/base-v1.js"></script>
 	<script type="text/javascript" src="/js/order.common.js"></script>
-	<script type="text/javascript" src="/js/taotao.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/js/xxmall.js" charset="utf-8"></script>
 </head>
 <body id="mainframe">
 <!--shortcut start-->
@@ -44,7 +44,7 @@
 		<input type="hidden" name="orderShipping.receiverAddress" value="三鲁公路3279号 明浦广场 3号楼 205室 "/>
 	</form>
 	<div class="w w1 header clearfix">
-		<div id="logo"><a href="http://www.taotao.com/"><img src="/images/taotao-logo.gif"  alt="淘淘商城" /></a></div>
+		<div id="logo"><a href="http://www.xxmall.com/"><img src="/images/xxmall-logo.gif"  alt="晰晰商城" /></a></div>
 		<div class="progress clearfix">
 			<ul class="progress-2">
 				<li class="s1"><b></b>1.我的购物车</li>
@@ -99,7 +99,7 @@
 	    
         <div class="way-list">
 	        			        				         <div class="way-item">
-			            淘淘快递&nbsp;&nbsp;中小件商品&nbsp;&nbsp;<font color='#FF6600;'>工作日、双休日与假日均可送货</font> &nbsp;  
+			            晰晰快递&nbsp;&nbsp;中小件商品&nbsp;&nbsp;<font color='#FF6600;'>工作日、双休日与假日均可送货</font> &nbsp;  
 			             			             <span id="promise_jd_message"></span>
 			             			          </div>
 	        			
@@ -134,7 +134,7 @@
                     <dl class="clearfix">
                        <dt>温馨提示：</dt>
                        <dd>
-                           <div>发票的开票金额不包括淘淘卡/淘淘E卡、优惠券和京豆支付部分</div>
+                           <div>发票的开票金额不包括晰晰卡/晰晰E卡、优惠券和京豆支付部分</div>
 						                              <div>电子发票是税务局认可的有效收付款凭证，具有售后维权的法律效力，暂不支持企业报销</div>
 						                          </dd>
                     </dl>
@@ -162,7 +162,7 @@
 	<tbody>
 		<tr>
 		<td class="fore1">商品</td>
-					<td class="fore2">淘淘价</td>
+					<td class="fore2">晰晰价</td>
 				<td class="fore3">优惠</td>
 		<td class="fore4">数量</td>
 		<td class="fore4">库存状态</td>
@@ -220,10 +220,10 @@
 				  <tr>
 				    <td class="fore1">
 					   <div class="p-goods">
-						  <div class="p-img"><a href="http://www.taotao.com/item/${item.id}.html" target='_blank'><img width="52" height="52" src="${item.images[0]}"></a></div>
+						  <div class="p-img"><a href="http://www.xxmall.com/item/${item.id}.html" target='_blank'><img width="52" height="52" src="${item.images[0]}"></a></div>
 							 <div class="p-detail">
 								<div class="p-name">
-									<a href="http://www.taotao.com/item/${item.id}.html" target='_blank'>
+									<a href="http://www.xxmall.com/item/${item.id}.html" target='_blank'>
 										${item.title }
 								    </a>
 								</div>
@@ -285,7 +285,7 @@
 	    							</span>
 																<div class="checkout-submit-tip" id="changeAreaAndPrice" style="display: none;">由于地址更换，价格可能发生变化，请核对后再提交订单</div>
 								<div style="display:none" id="factoryShipCodShowDivBottom" class="dispatching">
-									部分商品货到付款方式：先由淘淘配送“提货单”并收款，然后厂商发货。
+									部分商品货到付款方式：先由晰晰配送“提货单”并收款，然后厂商发货。
 								</div>
 							</div>
 							<span id="submit_message" style="display:none" class="submit-error" ></span>
@@ -313,7 +313,7 @@
 	<script type="text/javascript">
 		
 	$('#bill-tip-btn').Jtips({//随点随帮tip弹出
-		"content":'<a target="_blank" href="http://help.jd.com/help/question-61.html#kjfpf">如何区分淘淘销售和第三方卖家销售的商品?</a>',
+		"content":'<a target="_blank" href="http://help.jd.com/help/question-61.html#kjfpf">如何区分晰晰销售和第三方卖家销售的商品?</a>',
 		"close":true,			
 	    "position": 'bottom'
 	});

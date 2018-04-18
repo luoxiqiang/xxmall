@@ -70,7 +70,7 @@ public class ItemService extends BaseService<Item>{
 		try {
 			//通知前台更新缓存
 			String url = FORE_URL+"/item/cache/"+item.getId()+".html";
-			apiService.doPost(url);
+			apiService.doPost(url,"");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
