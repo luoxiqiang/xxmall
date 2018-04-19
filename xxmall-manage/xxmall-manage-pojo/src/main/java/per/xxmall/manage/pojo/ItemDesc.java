@@ -6,7 +6,7 @@ import javax.persistence.Table;
 @Table(name = "xx_item_desc")
 public class ItemDesc extends BasePojo{
     
-    @Id//对应tb_item中的id
+    @Id                       //对应tb_item中的id
     private Long itemId;
     
     private String itemDesc;
