@@ -21,6 +21,7 @@
 				<value>classpath:evn.properties</value>
 				<value>classpath:httpclient.properties</value>
 				<value>classpath:solr.properties</value>
+				<value>classpath:rabbit.properties</value>
 			</list>
 		</property>
 	</bean>

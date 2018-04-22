@@ -28,7 +28,6 @@ public class SearchService {
 		solrQuery.setQuery(keyWords);
 		solrQuery.setStart((Math.max(page,1)-1)*rows);
 		solrQuery.setRows(rows);
-		
 		//是否可高亮
 		boolean isHighlighting = !StringUtils.equals("*", keyWords) && StringUtils.isNotEmpty(keyWords);
 		if(isHighlighting) {
