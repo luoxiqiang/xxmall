@@ -17,6 +17,6 @@
 	<bean id="itemMQHandler" class="per.xxmall.web.mq.handler.ItemMQHandler"></bean>
 	
 	<rabbit:listener-container connection-factory="connectionFactory">
-		<rabbit:listener ref="itemMQHandler" method="excute" queue-names="xxmall_web_item_queue"/>
+		<rabbit:listener ref="itemMQHandler" method="execute" queue-names="xxmall_web_item_queue"/>
 	</rabbit:listener-container>
 </beans>

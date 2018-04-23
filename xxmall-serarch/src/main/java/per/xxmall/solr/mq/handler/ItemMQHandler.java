@@ -19,6 +19,7 @@ public class ItemMQHandler {
 	
 	@Autowired
 	private HttpSolrServer httpsolrServer;
+	
 	public void execute(String msg){
 		try {
 			JsonNode node = MAPPER.readTree(msg);

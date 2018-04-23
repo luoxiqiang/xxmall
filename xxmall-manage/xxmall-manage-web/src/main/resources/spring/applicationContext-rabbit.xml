@@ -12,7 +12,7 @@
 	
 	<rabbit:admin connection-factory="connectionFactory"/>
 	
-	<rabbit:direct-exchange name="xxmall_manege_item_exchange" auto-declare="true" durable="true"/>
+	<rabbit:topic-exchange name="xxmall_manege_item_exchange" auto-declare="true" durable="true"/>
 	
 	<rabbit:template id="itemTemplate" exchange="xxmall_manege_item_exchange" 
 	connection-factory="connectionFactory"/>

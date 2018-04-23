@@ -19,6 +19,7 @@ public class ItemService {
 	
 	@Value("${MANAGE_URL}")
 	public String MANAGE_URL;
+	
 	public Item getItemById(Long itemId){
 		try {
 			String url = MANAGE_URL+"/rest/item/"+itemId;

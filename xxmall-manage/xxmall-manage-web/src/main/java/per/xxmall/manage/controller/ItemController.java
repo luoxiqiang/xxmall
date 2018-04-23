@@ -16,6 +16,7 @@ import com.github.pagehelper.PageInfo;
 
 import per.xxmall.common.bean.EasyUIResult;
 import per.xxmall.manage.pojo.Item;
+import per.xxmall.manage.pojo.ItemCat;
 import per.xxmall.manage.service.ItemService;
 
 @Controller
@@ -68,6 +69,15 @@ public class ItemController {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		}
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+	}
+	
+	@RequestMapping(value = "/{itemId}", method = RequestMethod.GET)
+	public ResponseEntity<Item> getItemCatName(@PathVariable("itemId") Long itemCatId) {
+		Item item = itemService.queryById(itemCatId);
+		if(item == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		return ResponseEntity.ok(item);
 	}
 	
 }
