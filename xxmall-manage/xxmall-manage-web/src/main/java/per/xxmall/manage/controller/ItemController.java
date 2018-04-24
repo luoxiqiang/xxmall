@@ -37,10 +37,7 @@ public class ItemController {
 			if(StringUtils.isEmpty(desc)||item.getTitle() == "") {
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 			}
-			Boolean status = itemService.itemsave(item, desc,itemParams);
-			if(!status) {
-				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-			}
+			itemService.itemsave(item, desc,itemParams);
 			return ResponseEntity.status(HttpStatus.CREATED).build();
 		} catch (Exception e) {
 			LOGGER.error("添加商品: ["+item.getTitle()+"] 失败",e);
@@ -64,9 +61,12 @@ public class ItemController {
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Void> updateItem(Item item,String desc,String itemParams){
-		Boolean bool = itemService.updatItem(item,desc,itemParams);
-		if(bool) {
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		try {
+			itemService.updateItem(item,desc,itemParams);
+				return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	}

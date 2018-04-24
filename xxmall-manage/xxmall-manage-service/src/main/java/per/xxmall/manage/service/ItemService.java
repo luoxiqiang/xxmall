@@ -39,20 +39,19 @@ public class ItemService extends BaseService<Item>{
 	
 	private static final ObjectMapper MAPPER= new ObjectMapper();
 	
-	public Boolean itemsave(Item item, String desc, String itemParams) {
+	public void itemsave(Item item, String desc, String itemParams) {
 		item.setStatus(1);
 		item.setId(null);
-		int status1 = save(item);
+		save(item);
 		ItemDesc itemDesc = new ItemDesc();
 		itemDesc.setItemId(item.getId());
 		itemDesc.setItemDesc(desc);
-		int status2 = itemDescService.save(itemDesc);
+		itemDescService.save(itemDesc);
 		ItemParamItem itemParamItem = new ItemParamItem();
 		itemParamItem.setItemId(item.getId());
 		itemParamItem.setParamData(itemParams);
-		Integer status3 = itemParamItemService.save(itemParamItem);
+		itemParamItemService.save(itemParamItem);
 		sendMQ(item.getId(),"insert");
-		return status1 == 1 && status2 == 1 && status3 == 1;
 	}
 
 	public PageInfo<Item> getItemList(Integer page, Integer rows) {
@@ -63,15 +62,15 @@ public class ItemService extends BaseService<Item>{
 		return new PageInfo<Item>(list);
 	}
 
-	public Boolean updatItem(Item item, String desc, String itemParams) {
+	public void updateItem(Item item, String desc, String itemParams) {
 		item.setCreated(null);
 		item.setStatus(null);
-		Integer integer = updateSelective(item);
+		updateSelective(item);
 		ItemDesc itemDesc = new ItemDesc();
 		itemDesc.setItemId(item.getId());
 		itemDesc.setItemDesc(desc);
-		Integer integer2 = itemDescService.updateSelective(itemDesc);
-		Integer integer3 = itemParamItemService.updateBiItemId(item.getId(),itemParams);
+		itemDescService.updateSelective(itemDesc);
+		itemParamItemService.updateBiItemId(item.getId(),itemParams);
 		
 		/*try {
 			//通知前台更新缓存
@@ -83,9 +82,6 @@ public class ItemService extends BaseService<Item>{
 		
 		//发送消息到前台
 		sendMQ(item.getId(),"update");
-		
-		
-		return integer == 1 && integer2 == 1 && integer3 ==1;
 	}
 	
 	public void sendMQ(Long itemId,String type){
