@@ -1,7 +1,12 @@
 package per.xxmall.cart.bean;
 
+import java.util.Date;
+
 import org.apache.commons.lang3.StringUtils;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Item {
 
     private Long id;
@@ -21,6 +26,10 @@ public class Item {
     private Long cid;
 
     private Integer status;
+    
+    private Date created;
+    
+    private Date updated;
 
     public Long getId() {
         return id;
@@ -94,7 +103,24 @@ public class Item {
         this.status = status;
     }
     
-    public String[] getImages() {
+    
+    public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public Date getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
+
+	public String[] getImages() {
 		return StringUtils.split(getImage(),",");
 	}
 
