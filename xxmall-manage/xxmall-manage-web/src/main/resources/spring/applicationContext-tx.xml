@@ -18,16 +18,46 @@
 		<tx:attributes>
 			<!--所有以query开头的方法都是只读的 -->
 			<tx:method name="query*" read-only="true" />
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="select*" read-only="true" />
+			
+			<!-- 主库执行操作，事务传播行为定义为默认行为 -->
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+
 			<!--其他方法使用默认事务策略 -->
 			<tx:method name="*" />
+
 		</tx:attributes>
 	</tx:advice>
 
+	<!-- 定义AOP切面处理器
+	<bean class="per.xxmall.manage.datasource.DataSourceAspect" id="dataSourceAspect" /> -->
+	
+	<!-- 使用事务策略规则定义AOP切面处理器
+	<bean class="per.xxmall.manage.datasource.DataSourceAspect1" id="dataSourceAspect">
+		指定事务策略
+		<property name="txAdvice" ref="txAdvice"/>
+		指定slave方法的前缀（非必须）
+		<property name="slaveMethodStart" value="query,find,get"/>
+	</bean> -->
+	
+
 	<aop:config>
 		<!--pointcut元素定义一个切入点，execution中的第一个星号 用以匹配方法的返回类型 -->
-		<aop:pointcut id="myPointcut" expression="execution(* per.xxmall.manage.service.*.*(..))" />
+		<aop:pointcut id="txPointcut" expression="execution(* per.xxmall.manage.service.*.*(..))" />
 		<!--将定义好的事务处理策略应用到上述的切入点 -->
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+		
+		<!-- 将切面应用到自定义的切面处理器上，-9999保证该切面优先级最高执行
+		<aop:aspect ref="dataSourceAspect" order="-9999">
+			<aop:before method="before" pointcut-ref="txPointcut" />
+		</aop:aspect> -->
+		
 	</aop:config>
+	
+	
 	
 </beans>

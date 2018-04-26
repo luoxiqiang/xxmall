@@ -16,7 +16,6 @@ import com.github.pagehelper.PageInfo;
 
 import per.xxmall.common.bean.EasyUIResult;
 import per.xxmall.manage.pojo.Item;
-import per.xxmall.manage.pojo.ItemCat;
 import per.xxmall.manage.service.ItemService;
 
 @Controller
