@@ -48,5 +48,9 @@ public class DynamicDataSourceHolder {
         putDataSourceKey(SLAVE);
     }
 
+	public static boolean isMaster() {
+		return holder.get().equals(MASTER);
+	}
+
 }
 

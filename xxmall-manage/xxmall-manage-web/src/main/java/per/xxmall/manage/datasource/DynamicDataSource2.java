@@ -37,7 +37,7 @@ public class DynamicDataSource2 extends AbstractRoutingDataSource {
     @Override
     protected Object determineCurrentLookupKey() {
         // 使用DynamicDataSourceHolder保证线程安全，并且得到当前线程中的数据源key
-        if (DynamicDataSourceHolder.getDataSourceKey().equals("master")) {
+        if (DynamicDataSourceHolder.isMaster()) {
             Object key = DynamicDataSourceHolder.getDataSourceKey(); 
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("当前DataSource的key为: " + key);
